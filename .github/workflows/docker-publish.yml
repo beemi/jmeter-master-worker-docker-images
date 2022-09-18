@@ -1,0 +1,56 @@
+name: Docker image build and publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v2.0.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Docker metadata JMeter master
+        id: meta-jmeter-master
+        uses: docker/metadata-action@v4.0.1
+        with:
+          images: ${{ env.REGISTRY }}/jaitechltd-jmeter-master
+
+      - name: Extract Docker metadata JMeter worker
+        id: meta-jmeter-worker
+        uses: docker/metadata-action@v4.0.1
+        with:
+          images: ${{ env.REGISTRY }}/jaitechltd-jmeter-worker
+
+      - name: Build and push Docker image JMeter master
+        uses: docker/build-push-action@v3.1.1
+        with:
+          context: jmeter-master/
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta-jmeter-master.outputs.tags }}
+          labels: ${{ steps.meta-jmeter-master.outputs.labels }}
+
+      - name: Build and push Docker image JMeter worker
+        uses: docker/build-push-action@v3.1.1
+        with:
+           context: jmeter-worker/
+           push: ${{ github.event_name != 'pull_request' }}
+           tags: ${{ steps.meta-jmeter-worker.outputs.tags }}
+           labels: ${{ steps.meta-jmeter-worker.outputs.labels }}
