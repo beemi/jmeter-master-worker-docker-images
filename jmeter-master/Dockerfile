@@ -9,7 +9,8 @@ RUN apk update && \
     chmod u+x kubectl && \
     mv kubectl /bin/kubectl
 
-ADD ./scripts/*.sh /opt/jaitechltd/scripts/
+ADD ./*.sh /opt/jaitechltd/scripts/
+RUN chmod +x *.sh
 
 EXPOSE 60000
 
