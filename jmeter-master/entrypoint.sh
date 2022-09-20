@@ -14,7 +14,7 @@ containerIp=$(hostname -i)
 echo "Starting jmeter master on ${containerIp} at $(date +%T)"
 
 jmeter \
-    -n -t placebetraj.jmx \
+    -n -t test.jmx \
     -l /jmeter-results/output.csv \
     -e -o /jmeter-results/ \
     -R$combined && echo "All done and current time: $(date +%T)"
