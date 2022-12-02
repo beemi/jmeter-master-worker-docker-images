@@ -13,4 +13,5 @@ jmeter-server \
   -Dserver.rmi.ssl.disable=true \
   -Dserver.rmi.localport=50000 \
   -Dserver_port=1099 \
-  -Dprometheus.ip=0.0.0.0
+  -Dprometheus.ip=0.0.0.0 \
+  -Ljmeter.engine=ERROR
