@@ -9,12 +9,19 @@ RUN apk update && \
     chmod u+x kubectl && \
     mv kubectl /bin/kubectl
 
-ADD ./*.sh /opt/jaitechltd/scripts/
-RUN chmod +x *.sh
+# Jmx files has been moved to ansible role
+#ADD /jmeter-master/jmxfiles/*.jmx ${JMETER_BIN}/
+# no need to copy csv files as they just need to be in jmeter worker containers
+#COPY csvdata/*.csv ${JMETER_BIN}/
 
-EXPOSE 60000
+#ADD /jmeter-master/entrypoint.sh ${JMETER_BIN}/
+ADD /jmeter-master/scripts/*.sh /opt/jaitechltd/scripts/
+RUN chmod +x *.sh
 
 WORKDIR $JMETER_BIN
 
+EXPOSE 60000
+
 # Application to run on starting the container
+#ENTRYPOINT ["sh","entrypoint.sh"]
 ENTRYPOINT ["sh", "/opt/jaitechltd/scripts/entrypoint.sh"]
