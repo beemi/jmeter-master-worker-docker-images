@@ -15,7 +15,7 @@ RUN apk update && \
 #COPY csvdata/*.csv ${JMETER_BIN}/
 
 #ADD /jmeter-master/entrypoint.sh ${JMETER_BIN}/
-ADD /jmeter-master/*.sh /opt/jaitechltd/scripts/
+ADD ./*.sh /opt/jaitechltd/scripts/
 RUN chmod +x *.sh
 
 WORKDIR $JMETER_BIN
