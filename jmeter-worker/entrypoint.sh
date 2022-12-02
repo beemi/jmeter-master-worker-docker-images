@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export JVM_ARGS="-Xmn4G -Xms4G -Xmx4g"
-echo "JVM_ARGS=${JVM_ARGS}"
+#export JVM_ARGS="-Xmn4G -Xms4G -Xmx4g"
+#echo "JVM_ARGS=${JVM_ARGS}"
 
 containerIp=$(hostname -i)
 
