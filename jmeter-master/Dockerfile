@@ -15,7 +15,7 @@ RUN apk update && \
 #COPY csvdata/*.csv ${JMETER_BIN}/
 
 #ADD /jmeter-master/entrypoint.sh ${JMETER_BIN}/
-ADD ./*.sh /opt/jaitechltd/scripts/
+ADD ./*.sh /opt/jaitechltd/config/
 RUN chmod +x *.sh
 
 WORKDIR $JMETER_BIN
@@ -24,4 +24,4 @@ EXPOSE 60000
 
 # Application to run on starting the container
 #ENTRYPOINT ["sh","entrypoint.sh"]
-ENTRYPOINT ["sh", "/opt/jaitechltd/scripts/entrypoint.sh"]
+ENTRYPOINT ["sh", "/opt/jaitechltd/config/entrypoint.sh"]
