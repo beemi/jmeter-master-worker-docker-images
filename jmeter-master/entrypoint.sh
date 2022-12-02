@@ -23,7 +23,7 @@ export JVM_ARGS="-Xmn512m -Xms512m -Xmx512m"
 echo "JVM_ARGS=${JVM_ARGS}"
 
 #run_file_if_present /opt/jaitechltd/config/pre-test.sh
-run_file_if_present /opt/dax/jaitechltd/config/test.sh
-#run_file_if_present /opt/dax/jaitechltd/config/post-test.sh
+run_file_if_present /opt/jaitechltd/config/test.sh
+#run_file_if_present /opt/jaitechltd/config/post-test.sh
 
 echo "Finished load test"
