@@ -10,7 +10,7 @@ run_file_if_present() {
 
 on_exit() {
   TEST_FAILED=$?
-  run_file_if_present /opt/dax/config/exit.sh
+  run_file_if_present /opt/jaitechltd/config/exit.sh
   [ $TEST_FAILED -eq 0 ] && exit
   echo "Load test failed. Exiting..."
   exit 1
