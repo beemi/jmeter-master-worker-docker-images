@@ -10,7 +10,7 @@ run_file_if_present() {
 
 on_exit() {
   TEST_FAILED=$?
-  run_file_if_present /opt/jaitechltd/config/exit.sh
+  run_file_if_present /opt/jaitechltd/scripts/exit.sh
   [ $TEST_FAILED -eq 0 ] && exit
   echo "Load test failed. Exiting..."
   exit 1
@@ -22,8 +22,8 @@ echo "Starting load test..."
 export JVM_ARGS="-Xmn512m -Xms512m -Xmx512m"
 echo "JVM_ARGS=${JVM_ARGS}"
 
-#run_file_if_present /opt/jaitechltd/config/pre-test.sh
-run_file_if_present /opt/jaitechltd/config/test.sh
-#run_file_if_present /opt/jaitechltd/config/post-test.sh
+#run_file_if_present /opt/jaitechltd/scripts/pre-test.sh
+run_file_if_present /opt/jaitechltd/scripts/test.sh
+#run_file_if_present /opt/jaitechltd/scripts/post-test.sh
 
 echo "Finished load test"
