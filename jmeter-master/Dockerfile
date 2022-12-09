@@ -1,4 +1,4 @@
-FROM ghcr.io/beemi/jmeter-docker-base-image:v1.0.2
+FROM ghcr.io/beemi/jmeter-docker-base-image:v1.0.3
 
 RUN apk update && \
     apk add --no-cache curl git python3 py3-pip groff && \

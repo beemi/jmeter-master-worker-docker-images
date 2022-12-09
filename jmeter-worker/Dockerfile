@@ -1,4 +1,4 @@
-FROM ghcr.io/beemi/jmeter-docker-base-image:v1.0.2
+FROM ghcr.io/beemi/jmeter-docker-base-image:v1.0.3
 
 ADD ./*.sh $JMETER_BIN/
 RUN chmod +x *.sh
