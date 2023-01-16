@@ -40,7 +40,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ github.actor }}/jaitechltd-jmeter-worker
 
       - name: Build and push Docker image JMeter master
-        uses: docker/build-push-action@v3.2.0
+        uses: docker/build-push-action@v3.3.0
         with:
           context: jmeter-master/
           push: ${{ github.event_name != 'pull_request' }}
@@ -48,7 +48,7 @@ jobs:
           labels: ${{ steps.meta-jmeter-master.outputs.labels }}
 
       - name: Build and push Docker image JMeter worker
-        uses: docker/build-push-action@v3.2.0
+        uses: docker/build-push-action@v3.3.0
         with:
            context: jmeter-worker/
            push: ${{ github.event_name != 'pull_request' }}
