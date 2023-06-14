@@ -29,13 +29,13 @@ jobs:
 
       - name: Extract Docker metadata JMeter master
         id: meta-jmeter-master
-        uses: docker/metadata-action@v4.1.1
+        uses: docker/metadata-action@v4.6.0
         with:
           images: ${{ env.REGISTRY }}/${{ github.actor }}/jaitechltd-jmeter-master
 
       - name: Extract Docker metadata JMeter worker
         id: meta-jmeter-worker
-        uses: docker/metadata-action@v4.1.1
+        uses: docker/metadata-action@v4.6.0
         with:
           images: ${{ env.REGISTRY }}/${{ github.actor }}/jaitechltd-jmeter-worker
 
